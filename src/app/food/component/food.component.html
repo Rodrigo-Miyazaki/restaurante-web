@@ -1,2 +1,40 @@
-<p>food works!</p>
-<div></div>
+<p-table #dt responsiveLayout="stack" [value]="foods" [paginator]="true" [rows]="10" [rowHover]="true" dataKey="id" [(selection)]="selectedFoods"
+    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [showCurrentPageReport]="true">
+    <ng-template pTemplate="caption">
+        <div class="flex align-items-center justify-content-between">
+            <div class="flex align-items-center justify-content-center m-2">
+                <h5 class="m-0">{{title}}</h5>
+            </div>
+            <div class="flex align-items-center justify-content-center m-2">
+                <button pButton pRipple icon="pi pi-plus" class="p-button-success mr-2"></button>
+                <button pButton pRipple icon="pi pi-trash" class="p-button-danger"
+                    [disabled]="!selectedFoods || !selectedFoods.length"></button>
+            </div>
+        </div>
+    </ng-template>
+    <ng-template pTemplate="header">
+        <tr>
+            <th style="width: 3rem">
+                <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+            </th>
+            <th pSortableColumn="name">Name<p-sortIcon field="name"></p-sortIcon>
+            </th>
+            <th pSortableColumn="available">Disponível<p-sortIcon field="available"></p-sortIcon>
+            </th>
+            <th></th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-food>
+        <tr>
+            <td>
+                <p-tableCheckbox [value]="food"></p-tableCheckbox>
+            </td>
+            <td>{{food.name}}</td>
+            <td><i [class]="food.available == true ? 'pi pi-check text-green-500 text-center':'pi pi-times text-pink-500'" ></i></td>
+            <td>
+                <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-warning mr-2"></button>
+                <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-danger"></button>
+            </td>
+        </tr>
+    </ng-template>
+</p-table>

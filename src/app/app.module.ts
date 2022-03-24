@@ -1,11 +1,12 @@
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import {BrowserAnimationsModule, NoopAnimationsModule} from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FoodModule } from './food/modules/food.module';
-
+import {StyleClassModule} from 'primeng/styleclass';
 @NgModule({
   declarations: [
     AppComponent
@@ -14,7 +15,10 @@ import { FoodModule } from './food/modules/food.module';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FoodModule
+    FoodModule,
+    BrowserAnimationsModule,
+    NoopAnimationsModule,
+    StyleClassModule
   ],
   providers: [],
   bootstrap: [AppComponent]

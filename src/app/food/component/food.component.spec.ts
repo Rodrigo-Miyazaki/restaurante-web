@@ -14,8 +14,8 @@ describe('FoodComponent', () => {
 
   beforeEach(async () => {
     var foods: Food[] = [
-      { "id": 0, "name": "Arroz" },
-      { "id": 1, "name": "Feijão" },
+      { "id": 0, "name": "Arroz", available: false },
+      { "id": 1, "name": "Feijão", available: true },
     ];
     valueServiceSpy = jasmine.createSpyObj('FoodService', ['getAll']);
     valueServiceSpy.getAll.and.returnValue(of(foods));
