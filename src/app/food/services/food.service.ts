@@ -12,10 +12,10 @@ export class FoodService {
   constructor(private http: HttpClient) { }
 
   getAll(): Observable<Food[]> {
-    return this.http.get<any[]>(`${ environment.apiUrl }/api/food`);
+    return this.http.get<Food[]>(`${ environment.apiUrl }/api/food`);
   }
 
   getById(id:Number): Observable<Food> {
-    return this.http.get<any>(`${ environment.apiUrl }/api/food/${id}`);
+    return this.http.get<Food>(`${ environment.apiUrl }/api/food/${id}`);
   }
 }
